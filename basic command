@@ -1,0 +1,166 @@
+1. File & Directory Management
+
+pwd – Show current working directory
+
+ls – List files and directories
+
+ls -l → long format
+
+ls -a → show hidden files
+
+cd – Change directory
+
+mkdir – Create a directory
+
+touch – Create empty file or update timestamp
+
+cp – Copy files or directories
+
+cp -r → recursive copy for directories
+
+mv – Move or rename files
+
+rm – Remove files
+
+rm -r → remove directory recursively
+
+find – Search for files
+
+find /path -name "*.log"
+
+2. File Viewing & Editing
+
+cat – View file content
+
+less – Scroll through file content
+
+head / tail – View first or last lines of a file
+
+tail -f file.log → live log monitoring
+
+nano / vi / vim – Edit files in terminal
+
+3. File Permissions & Ownership
+chmod – Change file permissions
+
+chmod 755 file.sh
+
+chown – Change ownership
+
+chown user:group file
+
+umask – Default permission settings
+
+4. Process & Service Management
+ps – List running processes
+
+ps aux → all processes
+
+top / htop – Monitor processes in real-time
+
+kill – Kill process by PID
+
+kill -9 PID → force kill
+
+systemctl – Manage services
+
+systemctl status nginx
+
+systemctl restart docker
+
+service – Older way to manage services
+
+5. Networking Commands
+ifconfig / ip addr – Show IP configuration
+
+ping – Test network connectivity
+
+curl – Send HTTP requests
+
+wget – Download files from URLs
+
+netstat -tulnp – Show listening ports (deprecated; use ss)
+
+ss -tulnp – Show socket statistics
+
+telnet – Test connectivity to a port
+
+nslookup / dig – DNS lookup
+
+6. Disk Management
+df -h – Show disk usage (human-readable)
+
+du -sh folder/ – Show folder size
+
+mount / umount – Mount or unmount file systems
+
+lsblk – List block devices
+
+7. User & Group Management
+whoami – Show current user
+
+who – Show logged-in users
+
+id – Show UID, GID, groups
+
+adduser / useradd – Create user
+
+passwd – Change password
+
+usermod – Modify user
+
+groupadd – Add new group
+
+8. Archiving & Compression
+tar -cvf file.tar folder/ – Create tar archive
+
+tar -xvf file.tar – Extract tar archive
+
+gzip file / gunzip file.gz – Compress/decompress
+
+zip -r file.zip folder/ – Create zip
+
+unzip file.zip – Extract zip
+
+9. Log & Monitoring Commands
+journalctl – View system logs
+
+dmesg – Kernel messages
+
+tail -f /var/log/syslog – Follow logs
+
+10. Package Management
+Debian/Ubuntu:
+
+apt update – Update package index
+
+apt install package – Install
+
+apt remove package – Uninstall
+
+RHEL/CentOS:
+
+yum install package
+
+yum remove package
+
+Fedora:
+
+dnf install package
+
+11. SSH & Remote Access
+ssh user@host – Connect to remote server
+
+scp file user@host:/path – Secure copy
+
+rsync -av source/ user@host:/path – Sync files
+
+12. Scripting & Automation
+bash script.sh – Run shell script
+
+crontab -e – Schedule jobs
+
+env – Show environment variables
+
+export VAR=value – Set environment variable
+
