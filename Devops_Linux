@@ -1,0 +1,173 @@
+1. What is Linux?
+Linux is an open-source, Unix-like operating system kernel created by Linus Torvalds in 1991.
+While many people call “Linux” an operating system, strictly speaking, Linux is the kernel — the central component that talks directly to your computer’s hardware.
+Complete operating systems like Ubuntu, Fedora, CentOS, and Debian are actually Linux distributions (or “distros”) that bundle the Linux kernel with software, libraries, tools, and package managers.
+Key characteristics:
+•	Open Source – Anyone can read, modify, and share the code under the GNU General Public License (GPL).
+•	Multiuser & Multitasking – Multiple users can work simultaneously, and the system can run many tasks at once without interference.
+•	POSIX Compliant – Follows the Portable Operating System Interface standard, making it compatible with many UNIX tools.
+•	Highly Customizable – Can run on servers, desktops, embedded devices, or even supercomputers.
+•	Secure by Design – Strong permission and ownership model, plus community-driven security updates.
+💡 Think of Linux as the “engine” in a car — you can choose different models (distros), but the core engine (kernel) makes them all run.
+________________________________________
+2. Importance of Linux in DevOps
+In the DevOps world, Linux is not just important — it’s everywhere.
+It powers most cloud servers, container environments, and CI/CD pipelines you’ll work with daily.
+Here’s why Linux is critical for DevOps:
+•	Server Dominance
+Over 90% of cloud servers run on Linux. AWS EC2, Azure VMs, and Google Cloud Compute all rely heavily on Linux-based instances.
+•	Container & Orchestration Backbone
+Tools like Docker, Kubernetes, and OpenShift are designed with Linux at their core. Even when you run them on Windows, they often spin up a lightweight Linux VM in the background.
+•	Automation Friendly
+Linux’s shell scripting (Bash, Zsh) lets you automate deployments, configuration changes, and monitoring tasks.
+•	Infrastructure as Code (IaC)
+Popular IaC tools like Ansible, Terraform, and Puppet interact smoothly with Linux environments.
+•	Security & Networking
+DevOps engineers use Linux for firewall management (iptables, firewalld), SSL/TLS setup, SSH access, and system hardening.
+•	Performance & Reliability
+Linux systems can run for years without needing a reboot — essential for production-grade DevOps infrastructure.
+💡 Without Linux, a DevOps engineer is like a pilot without knowing how to fly the most common aircraft.
+
+
+
+Following are the cheat-sheat for Linux command:
+File and Directory Operations
+Command	Syntax	Purpose
+ls	ls -la	List files with details and permissions
+cd	cd /path or cd ~	Change directory or go home
+pwd	pwd	Print current working directory
+mkdir	mkdir -p /path/to/dir	Create directories recursively
+cp	cp -r source dest	Copy files/directories recursively
+mv	mv old new	Move or rename files
+rm	rm -rf /path	Remove files/directories forcefully
+find	find /path -name "*.log"	Search files by pattern
+locate	locate filename	Quick file search (indexed)
+which	which command	Find executable location
+Process Management
+Command	Syntax	Purpose
+ps	ps aux	Show all running processes
+top	top	Real-time process monitor
+htop	htop	Enhanced interactive process viewer
+kill	kill -9 PID	Force terminate process
+killall	killall nginx	Kill processes by name
+pkill	pkill -f "pattern"	Kill processes by pattern
+nohup	nohup command &	Run command in background
+jobs	jobs	Show background jobs
+systemctl	systemctl restart service	Manage system services
+System Monitoring
+Command	Syntax	Purpose
+df	df -h	Show disk usage human-readable
+du	du -h /path	Show directory size
+free	free -h	Display memory usage
+iostat	iostat -x 2	I/O statistics every 2 seconds
+sar	sar -u	System activity report
+vmstat	vmstat 2	Virtual memory statistics
+lscpu	lscpu	Display CPU information
+uptime	uptime	System uptime and load
+whoami	whoami	Show current user
+Network Operations
+Command	Syntax	Purpose
+netstat	netstat -tuln	Show listening ports
+ss	ss -tlnp	Modern netstat replacement
+curl	curl -I https://site.com	Test HTTP endpoints
+wget	wget -O file.tar.gz url	Download files
+ping	ping -c 4 google.com	Test connectivity
+traceroute	traceroute google.com	Trace network path
+dig	dig google.com MX	DNS lookup queries
+nslookup	nslookup google.com	DNS resolution
+
+Text Processing
+Command	Syntax	Purpose
+grep	grep -r "ERROR" /var/log/	Search text patterns
+awk	awk '{print $1}' file	Process columns and data
+sed	sed 's/old/new/g' file	Stream editor for text
+sort	sort -n file	Sort lines numerically
+uniq	uniq -c file	Remove duplicates, count
+wc	wc -l file	Count lines, words, chars
+head	head -n 20 file	Show first N lines
+tail	tail -f file	Follow file changes
+cut	cut -d',' -f2 file.csv	Extract columns
+tr	tr '[:lower:]' '[:upper:]'	Transform characters
+Archive and Compression
+Command	Syntax	Purpose
+tar	tar -czf backup.tar.gz /path	Create compressed archive
+tar	tar -xzf backup.tar.gz	Extract archive
+gzip	gzip file.txt	Compress single file
+gunzip	gunzip file.txt.gz	Decompress gzip file
+zip	zip -r archive.zip /path	Create ZIP archive
+unzip	unzip archive.zip	Extract ZIP archive
+
+
+
+
+
+
+Permissions and Ownership
+Command	Syntax	Purpose
+chmod	chmod 755 file	Change file permissions
+chown	chown user:group file	Change ownership
+chgrp	chgrp group file	Change group ownership
+umask	umask 022	Set default permissions
+Log Analysis
+Command	Syntax	Purpose
+journalctl	journalctl -u nginx	View systemd service logs
+journalctl	journalctl -f	Follow journal logs
+dmesg	dmesg | tail	Kernel messages
+logger	logger "Custom message"	Write to system log
+Advanced Operations
+Command	Syntax	Purpose
+crontab	crontab -e	Edit scheduled tasks
+at	at now + 1 hour	Schedule one-time task
+rsync	rsync -av src/ dest/	Sync files/directories
+scp	scp file user@host:/path	Secure copy over SSH
+ssh	ssh user@hostname	Secure shell connection
+sudo	sudo command	Execute as another user
+su	su - user	Switch user
+mount	mount /dev/sdb1 /mnt	Mount filesystem
+umount	umount /mnt	Unmount filesystem
+
+Essential Command Combinations
+Purpose	Command Combination
+Find large files	find / -size +100M -type f -exec ls -lh {} \;
+Monitor real-time logs	tail -f /var/log/app.log | grep ERROR
+Top CPU processes	ps aux --sort=-%cpu | head -10
+Top memory processes	ps aux --sort=-%mem | head -10
+Find open files by process	lsof -p PID
+Network connections	ss -tuln | grep :80
+Disk usage by directory	du -h /var/log | sort -hr
+Count files in directory	find /path -type f | wc -l
+Remove old files	find /tmp -mtime +7 -delete
+Backup with timestamp	tar -czf backup-$(date +%Y%m%d).tar.gz /data
+Permission Quick Reference
+Permission	Octal	Binary	Meaning
+---	0	000	No permissions
+--x	1	001	Execute only
+-w-	2	010	Write only
+-wx	3	011	Write and execute
+r--	4	100	Read only
+r-x	5	101	Read and execute
+rw-	6	110	Read and write
+rwx	7	111	Read, write, and execute
+
+
+Common Port Numbers
+Port	Service	Protocol
+22	SSH	TCP
+53	DNS	TCP/UDP
+80	HTTP	TCP
+443	HTTPS	TCP
+3306	MySQL	TCP
+5432	PostgreSQL	TCP
+6379	Redis	TCP
+8080	Alt HTTP	TCP
+9200	Elasticsearch	TCP
+Signal Reference
+Signal	Number	Purpose
+TERM	15	Graceful termination (default)
+KILL	9	Force termination
+HUP	1	Reload configuration
+INT	2	Interrupt (Ctrl+C)
+QUIT	3	Quit with core dump
+USR1	10	User-defined signal 1
+USR2	12	User-defined signal 2
+£
